@@ -1,14 +1,12 @@
 package connect.stellantis.car.trip.report;
 
-import java.util.*;
-
 public class App {
     public static void main(String[] args) {
-        TripData tripData = new TripData("trip_data.csv");
-        ArrayList<Long> teste = tripData.getTime();
+        CarTripData tripData = new CarTripData("src/trip_data.csv");
+        CarTripFuel fuel = tripData.getFuel();
 
-        for (Long time : teste) {
-            System.out.println(time);
+        for (Double measure : fuel.getData()) {
+            System.out.println(measure);
         }
     }
 }
