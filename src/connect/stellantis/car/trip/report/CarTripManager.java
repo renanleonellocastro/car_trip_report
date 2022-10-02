@@ -19,6 +19,7 @@ public class CarTripManager {
     private MainScreen m_mainScreen;
     private ReportScreen m_reportScreen;
     private ChartScreen m_chartScreen;
+    private TireSelectionScreen m_tireSelectionScreen;
 
     public CarTripManager() {
         m_tripData = new CarTripData(CarTripConstants.collectedDataPath);
@@ -33,6 +34,7 @@ public class CarTripManager {
         m_tirePressureBackRight = m_tripData.getBackRightTirePresure();
         initializeMainScreen();
         initializeReportScreen();
+        initializeTireSelectionScreen();
     }
 
     public void run() {
@@ -55,6 +57,12 @@ public class CarTripManager {
             m_dateHour.getTripEndValue(), m_fuel.getTripEndValue(), m_oilLevel.getTripEndValue(),
             m_tirePressureFrontLeft.getTripEndValue(), m_tirePressureFrontRight.getTripEndValue(),
             m_tirePressureBackLeft.getTripEndValue(), m_tirePressureBackRight.getTripEndValue());
+    }
+
+    private void initializeTireSelectionScreen() {
+        m_tireSelectionScreen = new TireSelectionScreen(CarTripConstants.reportBackgroundImagePath,
+            CarTripConstants.backImagePath, CarTripConstants.tire2ImagePath, m_tirePressureFrontLeft,
+            m_tirePressureFrontRight, m_tirePressureBackLeft, m_tirePressureBackRight);
     }
 
     private void addScreenButtonListeners() {
@@ -86,11 +94,12 @@ public class CarTripManager {
                     m_fuel.getTimeData(), m_fuel.getMeasuredData());
             }
         });
-    
-        m_mainScreen.getOilButton().addActionListener(new ActionListener() {
+
+        m_mainScreen.getTireButton().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                plotGraph("Oil Level During Trip", "seconds", "%", "Car Oil Level",
-                    m_oilLevel.getTimeData(), m_oilLevel.getMeasuredData());
+                m_tireSelectionScreen.setLocation(m_mainScreen.getLocation().x, m_mainScreen.getLocation().y);
+                m_tireSelectionScreen.setVisible(true);
+                m_mainScreen.setVisible(false);
             }
         });
 
@@ -99,6 +108,42 @@ public class CarTripManager {
                 m_mainScreen.setLocation(m_reportScreen.getLocation().x, m_reportScreen.getLocation().y);
                 m_mainScreen.setVisible(true);
                 m_reportScreen.setVisible(false);
+            }
+        });
+
+        m_tireSelectionScreen.getBackButton().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                m_mainScreen.setLocation(m_reportScreen.getLocation().x, m_reportScreen.getLocation().y);
+                m_mainScreen.setVisible(true);
+                m_tireSelectionScreen.setVisible(false);
+            }
+        });
+
+        m_tireSelectionScreen.getTireFrontLeftButton().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                plotGraph("Front Left Tire Pressure", "seconds", "kPa", "Front Left Tire Pressure",
+                    m_tirePressureFrontLeft.getTimeData(), m_tirePressureFrontLeft.getMeasuredData());
+            }
+        });
+
+        m_tireSelectionScreen.getTireFrontRightButton().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                plotGraph("Front Right Tire Pressure", "seconds", "kPa", "Front Right Tire Pressure",
+                    m_tirePressureFrontRight.getTimeData(), m_tirePressureFrontRight.getMeasuredData());
+            }
+        });
+
+        m_tireSelectionScreen.getTireBackLeftButton().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                plotGraph("Back Left Tire Pressure", "seconds", "kPa", "Back Left Tire Pressure",
+                    m_tirePressureBackLeft.getTimeData(), m_tirePressureBackLeft.getMeasuredData());
+            }
+        });
+
+        m_tireSelectionScreen.getTireBackRightButton().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                plotGraph("Back Right Tire Pressure", "seconds", "kPa", "Back Right Tire Pressure",
+                    m_tirePressureBackRight.getTimeData(), m_tirePressureBackRight.getMeasuredData());
             }
         });
     }
