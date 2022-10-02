@@ -10,10 +10,18 @@ public class CarTripOdometer {
         m_odometer = new ArrayList<>();
     }
 
-    public ArrayList<Integer> getData() {
-        ArrayList<Integer> data = new ArrayList<>();
+    public ArrayList<Number> getMeasuredData() {
+        ArrayList<Number> data = new ArrayList<>();
         for (CarTripOdometerData tripOdometerData : m_odometer) {
             data.add(tripOdometerData.getOdometer());
+        }
+        return data;
+    }
+
+    public ArrayList<Long> getTimeData() {
+        ArrayList<Long> data = new ArrayList<>();
+        for (CarTripOdometerData tripOdometerData : m_odometer) {
+            data.add(tripOdometerData.getTime());
         }
         return data;
     }

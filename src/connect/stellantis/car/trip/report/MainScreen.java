@@ -23,6 +23,26 @@ public class MainScreen extends JFrame {
         return m_reportButton;
     }
 
+    public JButton getBatteryButton() {
+        return m_batteryButton;
+    }
+
+    public JButton getFuelButton() {
+        return m_fuelButton;
+    }
+
+    public JButton getOdometerButton() {
+        return m_odometerButton;
+    }
+
+    public JButton getOilButton() {
+        return m_oilButton;
+    }
+
+    public JButton getTireButton() {
+        return m_tireButton;
+    }
+
     private void configureScreen() {
         setSize(1080, 641);
         setVisible(false);

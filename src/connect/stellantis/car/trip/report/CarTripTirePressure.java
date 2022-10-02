@@ -4,30 +4,38 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class CarTripTirePressure {
-    private ArrayList<CarTripTirePressureData> m_tirepressure;
+    private ArrayList<CarTripTirePressureData> m_tirePressure;
 
     public CarTripTirePressure() {
-        m_tirepressure = new ArrayList<>();
+        m_tirePressure = new ArrayList<>();
     }
 
-    public ArrayList<Double> getData() {
-        ArrayList<Double> data = new ArrayList<>();
-        for (CarTripTirePressureData tripTirePressureData : m_tirepressure) {
-            data.add(tripTirePressureData.getTirePressure());
+    public ArrayList<Number> getMeasuredData() {
+        ArrayList<Number> data = new ArrayList<>();
+        for (CarTripTirePressureData tripTirePressureLevelData : m_tirePressure) {
+            data.add(tripTirePressureLevelData.getTirePressure());
+        }
+        return data;
+    }
+
+    public ArrayList<Long> getTimeData() {
+        ArrayList<Long> data = new ArrayList<>();
+        for (CarTripTirePressureData tripTirePressureLevelData : m_tirePressure) {
+            data.add(tripTirePressureLevelData.getTime());
         }
         return data;
     }
 
     public void addData(CarTripTirePressureData tirepressureData) {
-        m_tirepressure.add(tirepressureData);
-        Collections.sort(m_tirepressure);
+        m_tirePressure.add(tirepressureData);
+        Collections.sort(m_tirePressure);
     }
 
     public double getTripStartValue() {
-        return m_tirepressure.get(0).getTirePressure();
+        return m_tirePressure.get(0).getTirePressure();
     }
 
     public double getTripEndValue() {
-        return m_tirepressure.get(m_tirepressure.size() - 1).getTirePressure();
+        return m_tirePressure.get(m_tirePressure.size() - 1).getTirePressure();
     }
 }

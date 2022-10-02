@@ -10,10 +10,18 @@ public class CarTripBatteryVoltage {
         m_batteryvoltage = new ArrayList<>();
     }
 
-    public ArrayList<Double> getData() {
-        ArrayList<Double> data = new ArrayList<>();
+    public ArrayList<Number> getMeasuredData() {
+        ArrayList<Number> data = new ArrayList<>();
         for (CarTripBatteryVoltageData tripBatteryVoltageData : m_batteryvoltage) {
             data.add(tripBatteryVoltageData.getBatteryVoltage());
+        }
+        return data;
+    }
+
+    public ArrayList<Long> getTimeData() {
+        ArrayList<Long> data = new ArrayList<>();
+        for (CarTripBatteryVoltageData tripBatteryVoltageData : m_batteryvoltage) {
+            data.add(tripBatteryVoltageData.getTime());
         }
         return data;
     }

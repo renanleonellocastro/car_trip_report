@@ -10,10 +10,18 @@ public class CarTripOilLevel {
         m_oillevel = new ArrayList<>();
     }
 
-    public ArrayList<Integer> getData() {
-        ArrayList<Integer> data = new ArrayList<>();
+    public ArrayList<Number> getMeasuredData() {
+        ArrayList<Number> data = new ArrayList<>();
         for (CarTripOilLevelData tripOilLevelData : m_oillevel) {
             data.add(tripOilLevelData.getOilLevel());
+        }
+        return data;
+    }
+
+    public ArrayList<Long> getTimeData() {
+        ArrayList<Long> data = new ArrayList<>();
+        for (CarTripOilLevelData tripOilLevelData : m_oillevel) {
+            data.add(tripOilLevelData.getTime());
         }
         return data;
     }

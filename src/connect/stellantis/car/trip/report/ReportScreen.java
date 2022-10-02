@@ -3,9 +3,6 @@ package connect.stellantis.car.trip.report;
 import java.awt.*;
 import javax.swing.*;
 import java.util.ArrayList;
-import javax.swing.plaf.basic.BasicCheckBoxUI;
-
-import java.awt.event.*;
 
 public class ReportScreen extends JFrame {
     private JLabel m_backgroundLabel;

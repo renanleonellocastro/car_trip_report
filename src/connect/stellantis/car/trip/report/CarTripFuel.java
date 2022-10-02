@@ -10,10 +10,18 @@ public class CarTripFuel {
         m_fuel = new ArrayList<>();
     }
 
-    public ArrayList<Double> getData() {
-        ArrayList<Double> data = new ArrayList<>();
+    public ArrayList<Number> getMeasuredData() {
+        ArrayList<Number> data = new ArrayList<>();
         for (CarTripFuelData tripFuelData : m_fuel) {
             data.add(tripFuelData.getFuel());
+        }
+        return data;
+    }
+
+    public ArrayList<Long> getTimeData() {
+        ArrayList<Long> data = new ArrayList<>();
+        for (CarTripFuelData tripFuelData : m_fuel) {
+            data.add(tripFuelData.getTime());
         }
         return data;
     }
