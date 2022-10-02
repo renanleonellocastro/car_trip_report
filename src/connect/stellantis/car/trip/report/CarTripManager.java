@@ -94,6 +94,13 @@ public class CarTripManager {
                     m_fuel.getTimeData(), m_fuel.getMeasuredData());
             }
         });
+    
+        m_mainScreen.getOilButton().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                plotGraph("Oil Level During Trip", "seconds", "percent", "Car Oil Level",
+                    m_oilLevel.getTimeData(), m_oilLevel.getMeasuredData());
+            }
+        });
 
         m_mainScreen.getTireButton().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
