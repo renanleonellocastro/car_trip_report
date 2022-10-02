@@ -7,7 +7,7 @@ proporcionando ao passageiro controle total sobre tudo o que ocorreu no veículo
 tensão da bateria, nível de óleo do motor, marcador de kilometragem, quantidade de combustível entre outros.
 
 <p align="center">
-  <img width="500" height="330" src="doc/img/mainscreen.png">
+  <img width="500" height="330" src="img/mainscreen.png">
 </p>
 
 ## Considerações Iniciais
@@ -48,27 +48,27 @@ O sistema foi dividido em 2 subsistemas, como mostrado abaixo:
 - 2-) GUI - Interface gráfica com o usuário (FRONTEND)
 
 O subsistema BACKEND possui as seguintes classes:
-- CarTripData : responsável por realizar a leitura dos dados do arquivo csv e preencher os objetos específicos com os dados lidos.
-- CarTripConstants: como se trata de uma demo, foram utilizadas constantes para o arquivo de dados e para as imagens da gui.
-- CarTripBatteryVoltageData: classe que representa um valor de tensão da bateria em um deteminado tempo.
-- CarTripBatteryVoltage: classe que representa todos os dados de tensão da bateria obtidos na viagem.
-- CarTripDateHourData: classe que representa um valor de data e hora em um deteminado "epoch".
-- CarTripDateHour: classe que representa todos os dados de data e hora obtidos na viagem.
-- CarTripFuelData: classe que representa um valor de combustível no tanque em um deteminado tempo.
-- CarTripFuel: classe que representa todos os dados de combustível no tanque obtidos na viagem.
-- CarTripOdometerData: classe que representa um valor de kilometragem total percorrida pelo veículo em um deteminado tempo.
-- CarTripOdometer: classe que representa todos os dados de kilometragem total percorrida pelo veículo obtidos na viagem.
-- CarTripOilLevelData: classe que representa um valor de nível de óleo no motor em um deteminado tempo.
-- CarTripOilLevel: classe que representa todos os dados de nível de óleo no motor obtidos na viagem.
-- CarTripTirePressureData: classe que representa um valor de pressão no pneu em um deteminado tempo.
-- CarTripTirePressure: classe que representa todos os dados de pressão no pneu obtidos na viagem.
+- **CarTripData:** responsável por realizar a leitura dos dados do arquivo csv e preencher os objetos específicos com os dados lidos.
+- **CarTripConstants:** como se trata de uma demo, foram utilizadas constantes para o arquivo de dados e para as imagens da gui.
+- **CarTripBatteryVoltageData:** classe que representa um valor de tensão da bateria em um deteminado tempo.
+- **CarTripBatteryVoltage:** classe que representa todos os dados de tensão da bateria obtidos na viagem.
+- **CarTripDateHourData:** classe que representa um valor de data e hora em um deteminado "epoch".
+- **CarTripDateHour:** classe que representa todos os dados de data e hora obtidos na viagem.
+- **CarTripFuelData:** classe que representa um valor de combustível no tanque em um deteminado tempo.
+- **CarTripFuel:** classe que representa todos os dados de combustível no tanque obtidos na viagem.
+- **CarTripOdometerData:** classe que representa um valor de kilometragem total percorrida pelo veículo em um deteminado tempo.
+- **CarTripOdometer:** classe que representa todos os dados de kilometragem total percorrida pelo veículo obtidos na viagem.
+- **CarTripOilLevelData:** classe que representa um valor de nível de óleo no motor em um deteminado tempo.
+- **CarTripOilLevel:** classe que representa todos os dados de nível de óleo no motor obtidos na viagem.
+- **CarTripTirePressureData:** classe que representa um valor de pressão no pneu em um deteminado tempo.
+- **CarTripTirePressure:** classe que representa todos os dados de pressão no pneu obtidos na viagem.
 
 O subsistema FRONTEND possui as seguintes classes:
-- CarTripManager : responsável por gerenciar as mudanças de tela, eventos de botão e inicialização da GUI.
-- MainScreen : classe que representa a tela inicial e principal da aplicação, possui botões para interação com o usuário.
-- ReportScreen : classe que repesenta a tela que exibe o relatório da viagem, mostrando dados do começo da viagem e dados do final da viagem.
-- ChartScreen : classe que repesenta a tela que exibe um gráfico cartesiano de variação dos dados sensoriais pelo tempo da viagem.
-- TireSelectionScreen: classe que repsenta a tela de seleção de qual pneu o usuário deseja ver os dados em formato cartesiano.
+- **CarTripManager:** responsável por gerenciar as mudanças de tela, eventos de botão e inicialização da GUI.
+- **MainScreen:** classe que representa a tela inicial e principal da aplicação, possui botões para interação com o usuário.
+- **ReportScreen:** classe que repesenta a tela que exibe o relatório da viagem, mostrando dados do começo da viagem e dados do final da viagem.
+- **ChartScreen:** classe que repesenta a tela que exibe um gráfico cartesiano de variação dos dados sensoriais pelo tempo da viagem.
+- **TireSelectionScreen:** classe que repsenta a tela de seleção de qual pneu o usuário deseja ver os dados em formato cartesiano.
 
 ## Funcionalidades
 
