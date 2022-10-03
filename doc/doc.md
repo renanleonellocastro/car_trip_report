@@ -44,10 +44,10 @@ Os seguintes dados são utilizados pelo sistema:
 
 O sistema foi dividido em 2 subsistemas, como mostrado abaixo:
 
-- 1-) Sistema de controle e leitura de dados (BACKEND)
-- 2-) GUI - Interface gráfica com o usuário (FRONTEND)
+### Subsistema de controle e leitura de dados
 
-O subsistema BACKEND possui as seguintes classes:
+O subsistema de controle e leitura de dados, também conhecido como BACKEND da aplicação, possui as seguintes classes:
+
 - **CarTripData:** responsável por realizar a leitura dos dados do arquivo csv e preencher os objetos específicos com os dados lidos.
 - **CarTripConstants:** como se trata de uma demo, foram utilizadas constantes para o arquivo de dados e para as imagens da gui.
 - **CarTripBatteryVoltageData:** classe que representa um valor de tensão da bateria em um deteminado tempo.
@@ -63,7 +63,10 @@ O subsistema BACKEND possui as seguintes classes:
 - **CarTripTirePressureData:** classe que representa um valor de pressão no pneu em um deteminado tempo.
 - **CarTripTirePressure:** classe que representa todos os dados de pressão no pneu obtidos na viagem.
 
-O subsistema FRONTEND possui as seguintes classes:
+### GUI - Interface gráfica com o usuário
+
+O subsistema GUI, também conhecido como FRONTEND da aplicação, possui as seguintes classes:
+
 - **CarTripManager:** responsável por gerenciar as mudanças de tela, eventos de botão e inicialização da GUI.
 - **MainScreen:** classe que representa a tela inicial e principal da aplicação, possui botões para interação com o usuário.
 - **ReportScreen:** classe que repesenta a tela que exibe o relatório da viagem, mostrando dados do começo da viagem e dados do final da viagem.
