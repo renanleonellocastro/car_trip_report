@@ -72,7 +72,7 @@ O subsistema FRONTEND possui as seguintes classes:
 
 ## Funcionalidades
 
-O sistema ainda é uma demonstração de conceito, portanto, não apresenta ainda todos as funcionalidades desejáveis.
+O sistema ainda é uma demonstração de conceito, portanto, não apresenta todas as funcionalidades desejáveis.
 As funcionalidades abaixo são as já implementadas na solução.
 - Leitura de dados brutos de viagem.
 - Exibição de relatório de viagem contendo informações do começo da viagem e do final da viagem, para se poder realizar comparações.
@@ -84,10 +84,40 @@ As funcionalidades abaixo são as já implementadas na solução.
 - Cálculo de consumo do véiculo e exportação dos dados por bluetooth, wifi, para o celular.
 - Adição de dados de marcha atual do câmbio, para então realizar gráficos de consumo por marcha.
 
+## Atuais Telas da Solução
+
+### Tela Principal
+
+A tela principal é apresentada na inicialização do sistema. Ela contém os botões para interação do usuário.
+<p align="center">
+  <img width="750" height="445" src="img/mainscreen.png">
+</p>
+
+### Tela De Relatório
+
+A tela de relatório exibe informações básicas dos dados de começo e fim de viagem.
+<p align="center">
+  <img width="750" height="445" src="img/reportscreen.png">
+</p>
+
+### Tela De Seleção de Pneus
+
+A tela de seleção de pneus exibe as opções de escolha dos 4 pneus para visualização do gráfico de pressão dos mesmos.
+<p align="center">
+  <img width="750" height="445" src="img/tireselectionscreen.png">
+</p>
+
+### Tela De Exibição Cartesiana
+
+A tela de exibição cartesiana mostra ao usuário um gráfico cartesiano das medidas sensoriais do veículo com relação ao tempo da viagem.
+<p align="center">
+  <img width="750" height="445" src="img/fuelscreen.png">
+</p>
+
 ## Próximos Passos
 
-Várias ideias foram surgindo ao decorrer do projeto e não foram possíveis ainda de serem implementas por limitação de tempo.
-As ideias abaixo são os próximos passos para evolução da solução apresentada por esse projeto.
+Várias ideias foram surgindo ao decorrer do projeto e não foram possíveis ainda de serem implementadas por limitação de tempo.
+As ideias abaixo são os próximos passos para a evolução da solução apresentada por esse projeto.
 - Cálculo da quantidade de kilômetros percorridos na viagem e exibição no relatório de viagem.
 - Cálculo da quantidade de combústivel utilizado na viagem e exibição no relatório de viagem.
 - Cálculo do preço da viagem utilizando os dados de combústivel utilizado e distância percorrida.
