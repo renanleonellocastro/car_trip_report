@@ -84,8 +84,6 @@ As funcionalidades abaixo são as já implementadas na solução.
 - Exibição em gráfico cartesiano da tensão na bateria com relação ao tempo da viagem.
 - Exibição em gráfico cartesiano da pressão nos quatro pneus com relação ao tempo da viagem.
 - Exibição em gráfico cartesiano da quantidade de combústivel no tanque com relação ao tempo da viagem.
-- Cálculo de consumo do véiculo e exportação dos dados por bluetooth, wifi, para o celular.
-- Adição de dados de marcha atual do câmbio, para então realizar gráficos de consumo por marcha.
 
 ## Atuais Telas da Solução
 
@@ -129,6 +127,8 @@ As ideias abaixo são os próximos passos para a evolução da solução apresen
 - Verificação automática, através de inteligência artificial, de pneu furado.
 - Verificação automática, utilizando dados de posição e dados de distância percorrida, de velocidade excedida no trecho.
 - Verificação automática, através de inteligência artificial, de problemas de rendimento no consumo de combústivel.
+- Cálculo de consumo do véiculo e exportação dos dados por bluetooth, wifi, para o celular.
+- Adição de dados de marcha atual do câmbio, para então realizar gráficos de consumo por marcha.
 
 ## Quer contribuir?
 
