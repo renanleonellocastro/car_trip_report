@@ -20,9 +20,11 @@ public class CarTripManager {
     private ReportScreen m_reportScreen;
     private ChartScreen m_chartScreen;
     private TireSelectionScreen m_tireSelectionScreen;
+    private MobileMessenger m_mobileMessenger;
 
     public CarTripManager() {
         m_tripData = new CarTripData(CarTripConstants.collectedDataPath);
+        m_mobileMessenger = new MobileMessenger();
         m_batteryVoltage = m_tripData.getBatteryVoltage();
         m_dateHour = m_tripData.getDateHour();
         m_fuel = m_tripData.getFuel();
@@ -45,7 +47,7 @@ public class CarTripManager {
     private void initializeMainScreen() {
         m_mainScreen = new MainScreen(CarTripConstants.backgroundImagePath, CarTripConstants.batteryImagePath,
             CarTripConstants.fuelImagePath, CarTripConstants.odometerImagePath, CarTripConstants.oilImagePath,
-            CarTripConstants.tireImagePath, CarTripConstants.reportImagePath);
+            CarTripConstants.tireImagePath, CarTripConstants.reportImagePath, CarTripConstants.mobilePath);
     }
 
     private void initializeReportScreen() {
@@ -110,6 +112,12 @@ public class CarTripManager {
             }
         });
 
+        m_mainScreen.getMobileButton().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                sendReportToMobile();
+            }
+        });
+
         m_reportScreen.getBackButton().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 m_mainScreen.setLocation(m_reportScreen.getLocation().x, m_reportScreen.getLocation().y);
@@ -120,7 +128,7 @@ public class CarTripManager {
 
         m_tireSelectionScreen.getBackButton().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                m_mainScreen.setLocation(m_reportScreen.getLocation().x, m_reportScreen.getLocation().y);
+                m_mainScreen.setLocation(m_tireSelectionScreen.getLocation().x, m_tireSelectionScreen.getLocation().y);
                 m_mainScreen.setVisible(true);
                 m_tireSelectionScreen.setVisible(false);
             }
@@ -161,6 +169,7 @@ public class CarTripManager {
         m_chartScreen.setLocation(m_mainScreen.getLocation().x, m_mainScreen.getLocation().y);
         m_chartScreen.setVisible(true);
         m_mainScreen.setVisible(false);
+        m_tireSelectionScreen.setVisible(false);
 
         m_chartScreen.getBackButton().addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -169,5 +178,25 @@ public class CarTripManager {
                 m_chartScreen.setVisible(false);
             }
         });
+    }
+
+    private void sendReportToMobile() {
+        Double totalFuel = new Double(m_fuel.getTripStartValue() - m_fuel.getTripEndValue());
+        Double totalFuelPrice = new Double(totalFuel * CarTripConstants.gasPrice);
+        Double totalPricePerPassenger = new Double (totalFuelPrice/CarTripConstants.numberOfPassengers);
+        String totalFuelStr = new String("Total de Combustível Utilizado na Viagem: %.2f litros");
+        totalFuelStr = String.format(totalFuelStr, totalFuel);
+        String totalFuelPriceStr = new String("Total Gasto com Combústivel na Viagem: R$ %.2f");
+        totalFuelPriceStr = String.format(totalFuelPriceStr, totalFuelPrice);
+        String passengers = new String("Número de Passageiros na Viagem: %d");
+        passengers = String.format(passengers, CarTripConstants.numberOfPassengers);
+        String totalPricePerPassengerStr = new String("Total por Passageiro: R$ %.2f");
+        totalPricePerPassengerStr = String.format(totalPricePerPassengerStr, totalPricePerPassenger);
+
+        m_mobileMessenger.sendMessage("FIAT Toro: Viagem Finalizada");
+        m_mobileMessenger.sendMessage(totalFuelStr);
+        m_mobileMessenger.sendMessage(totalFuelPriceStr);
+        m_mobileMessenger.sendMessage(passengers);
+        m_mobileMessenger.sendMessage(totalPricePerPassengerStr);
     }
 }

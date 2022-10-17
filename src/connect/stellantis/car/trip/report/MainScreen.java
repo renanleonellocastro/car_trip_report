@@ -12,11 +12,12 @@ public class MainScreen extends JFrame {
     private JButton m_oilButton;
     private JButton m_tireButton;
     private JButton m_reportButton;
+    private JButton m_mobileButton;
 
     public MainScreen(String backgroundPath, String batteryPath, String fuelPath,
-        String odometerPath, String oilPath, String tirePath, String reportPath) {
+        String odometerPath, String oilPath, String tirePath, String reportPath, String mobilePath) {
         configureScreen();
-        loadElements(backgroundPath, batteryPath, fuelPath, odometerPath, oilPath, tirePath, reportPath);
+        loadElements(backgroundPath, batteryPath, fuelPath, odometerPath, oilPath, tirePath, reportPath, mobilePath);
     }
 
     public JButton getReportButton() {
@@ -43,6 +44,10 @@ public class MainScreen extends JFrame {
         return m_tireButton;
     }
 
+    public JButton getMobileButton() {
+        return m_mobileButton;
+    }
+
     private void configureScreen() {
         setSize(1080, 641);
         setVisible(false);
@@ -51,7 +56,7 @@ public class MainScreen extends JFrame {
     }
 
     private void loadElements(String backgroundPath, String batteryPath, String fuelPath,
-     String odometerPath, String oilPath, String tirePath, String reportPath) {
+     String odometerPath, String oilPath, String tirePath, String reportPath, String mobilePath) {
         m_backgroundLabel = new JLabel(new ImageIcon(backgroundPath));
         m_batteryButton = new JButton(new ImageIcon(batteryPath));
         m_fuelButton = new JButton(new ImageIcon(fuelPath));
@@ -59,6 +64,7 @@ public class MainScreen extends JFrame {
         m_oilButton = new JButton(new ImageIcon(oilPath));
         m_tireButton = new JButton(new ImageIcon(tirePath));
         m_reportButton = new JButton(new ImageIcon(reportPath));
+        m_mobileButton = new JButton(new ImageIcon(mobilePath));
         addElements();
         configureElementsLayout();
     }
@@ -71,6 +77,7 @@ public class MainScreen extends JFrame {
         m_backgroundLabel.add(m_oilButton);
         m_backgroundLabel.add(m_tireButton);
         m_backgroundLabel.add(m_reportButton);
+        m_backgroundLabel.add(m_mobileButton);
     }
 
     private void configureElementsLayout() {
@@ -81,18 +88,20 @@ public class MainScreen extends JFrame {
         m_oilButton.setLayout(null);
         m_tireButton.setLayout(null);
         m_reportButton.setLayout(null);
+        m_mobileButton.setLayout(null);
         configureElementsBounds();
         configureElementsOpacity();
     }
 
     private void configureElementsBounds() {
         m_backgroundLabel.setBounds(0, 0, getSize().width, getSize().height);
-        m_batteryButton.setBounds(getInsets().left + 950, getInsets().top + 480, 90, 90);
+        m_mobileButton.setBounds(getInsets().left + 290, getInsets().top + 480, 90, 90);
+        m_reportButton.setBounds(getInsets().left + 400, getInsets().top + 480, 90, 90);
         m_fuelButton.setBounds(getInsets().left + 510, getInsets().top + 480, 90, 90);
         m_odometerButton.setBounds(getInsets().left + 620, getInsets().top + 480, 90, 90);
         m_oilButton.setBounds(getInsets().left + 730, getInsets().top + 480, 90, 90);
         m_tireButton.setBounds(getInsets().left + 840, getInsets().top + 480, 90, 90);
-        m_reportButton.setBounds(getInsets().left + 400, getInsets().top + 480, 90, 90);
+        m_batteryButton.setBounds(getInsets().left + 950, getInsets().top + 480, 90, 90);
     }
 
     private void configureElementsOpacity() {
@@ -102,5 +111,6 @@ public class MainScreen extends JFrame {
         m_oilButton.setContentAreaFilled(false);
         m_tireButton.setContentAreaFilled(false);
         m_reportButton.setContentAreaFilled(false);
+        m_mobileButton.setContentAreaFilled(false);
     }
 }
